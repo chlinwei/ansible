@@ -1,0 +1,7 @@
+- include: group.yml
+- include: user.yml
+- include: yum.yml
+- include: templ.yml
+- include: copyfile.yml
+- include: start.yml
+

@@ -1,0 +1,6 @@
+ #给role其标签,这样可以挑一些标签执行,而不必全部执行
+- hosts: all
+  remote_user: root
+  roles:
+    - {role: httpd,tags: ['web','httpd']}
+    - {role: nginx,tags: ['web','nginx'],when: ansible_distribution_major_version=="7"}
