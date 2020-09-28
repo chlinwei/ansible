@@ -1,0 +1,13 @@
+- name: set .vimrc
+  copy: src=vimrc  dest=/root/.vimrc 
+  
+
+- name: set lwprofile.sh
+  copy: src=lwprofile.sh dest=/etc/profile.d/lwprofile.sh 
+
+- name: source lwprofile.sh
+  shell: source /etc/profile.d/lwprofile.sh 
+
+- name: set git config 
+  copy: src=gitconfig dest=/root/.gitconfig backup=yes
+

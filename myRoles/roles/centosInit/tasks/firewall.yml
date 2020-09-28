@@ -1,0 +1,23 @@
+- name: close the firewalld
+  systemd: name=firewalld state=stopped enabled=no
+  when: ansible_distribution == "CentOS" and ansible_distribution_major_version == "7"
+
+- name: close the selinux
+  shell: setenforce 0
+  ignore_errors: True
+
+
+- name: copy selinux config file
+  copy: src=selinuxconfig dest=/etc/selinux/config backup=yes
+  when: ansible_distribution == "CentOS" and ansible_distribution_major_version == "7"
+
+
+
+- name: clear the iptables's rule
+  service: name=iptables state=stopped enabled=no
+  when: ansible_distribution == "CentOS" and ansible_distribution_major_version == "6"
+
+- name: clear the iptables's rule
+  systemd: name=iptables state=stopped enabled=no
+  when: ansible_distribution == "CentOS" and ansible_distribution_major_version == "7"
+

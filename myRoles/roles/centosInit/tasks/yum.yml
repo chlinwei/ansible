@@ -1,0 +1,21 @@
+- name: install common package
+  yum: 
+    name:
+      - epel-release
+      - vim
+      - bash-completion
+      - git
+      - wget
+      - curl
+      - net-tools
+      - iproute
+      - lrzsz
+  tags: installpkg
+   
+
+- name: install iptables-services
+  yum: name=iptables-services
+  when: ansible_distribution == "CentOS" and ansible_distribution_major_version == "7"
+ 
+  
+

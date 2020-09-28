@@ -1,0 +1,2 @@
+- name: setup multi-user startup
+  shell: systemctl set-default multi-user.target
